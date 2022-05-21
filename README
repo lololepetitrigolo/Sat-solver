@@ -1,0 +1,24 @@
+Pour compiler le programme on ouvre un terminal dans le dossier Sat solver et on exécute la commande gcc Type/*.c *.c -o sat_solver
+
+Pour éxécuter le code on rentre la commande ./sat_solver <Nom du ficher>
+	le nom du fichier doit être un chemin qui part du fichier Sat solver
+	le nom du fichier sera ni entre <> ni entre ""
+	on veillera à mettre le fichier apres les options(ie en dernier)
+
+exemple: ./sat_solver FichierTest/Sat/test2.cnf
+
+Notre Sat solver implémente deux algorithmes:
+	1.Quine (-algo quine pour utliser cet algorithme)
+	2.Dpll (-algo dpll pour utliser cet algorithme)
+
+Notre Sat solver implémente quatres heuristiques:
+	1. lors du choix d’un littéral on choisit le littéral le plus fréquent (-max pour utiliser cette heuristique)
+	2. on choisit un littéral apparaissant dans une clause de taille minimale (-min pour utiliser cette heuristique)
+	3. on choisit un littéral tiré aléatoirement uniformément (-rand pour utiliser cette heuristique)
+	4. on choisit le premier littéral de la formule (-first pour utiliser cette heuristique)
+
+Pour choisir des options l'ordre n'a pas d'importance il faut juste ne pas mettre de texte entre -algo et quine(ou dpll)
+et le fichier doit toujours être le dernier argument
+On pourra par exemple executer ./sat_solver -algo dpll -max FichierTest/Sat/test2.cnf
+
+Si aucune option n'est donnée en paramètre se sera l'algorithme dpll et l'heuristique max qui seront utilisé
